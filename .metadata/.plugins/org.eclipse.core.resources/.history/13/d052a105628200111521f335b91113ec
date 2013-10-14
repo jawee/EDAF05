@@ -1,0 +1,12 @@
+		
+public class Main {
+	public static void main(String[] args) {
+		Deck d = new Deck();
+		int i = 1;
+		while(!d.isEmpty()) {
+			System.out.println(d.getFirst());
+			i++;
+		}
+		System.out.println("End of deck " + i);
+	}
+}

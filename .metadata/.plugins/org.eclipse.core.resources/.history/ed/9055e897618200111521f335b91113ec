@@ -1,0 +1,49 @@
+import java.util.Collections;
+import java.util.LinkedList;
+
+
+public class Deck {
+	LinkedList<Card> deck;
+	
+	public Deck() {
+		deck =new LinkedList<Card>();
+		initialize();
+		shuffle();
+	}
+	
+	public void newDeck() {
+		deck =new LinkedList<Card>();
+		initialize();
+		shuffle();
+	}
+
+	private void initialize() {
+		for(int i = 0; i < 52; i++) {
+			if(i < 13) {
+				deck.add(new Card("Hearts", i%13+1));
+			} else if (i < 26) {
+				deck.add(new Card("Diamonds", i%13+1));
+			}else if(i<39) {
+				deck.add(new Card("Clubs", i%13+1));
+			} else {
+				deck.add(new Card("Spades", i%13+1));
+			}
+		}
+		System.out.println(deck);
+	}
+	
+	public void shuffle() {
+		Collections.shuffle(deck);
+		System.out.println(deck);
+	}
+	
+	public Card getFirst() {
+		Card c = deck.getFirst();
+		deck.remove(c);
+		return c;
+	}
+	
+	
+	
+	
+}

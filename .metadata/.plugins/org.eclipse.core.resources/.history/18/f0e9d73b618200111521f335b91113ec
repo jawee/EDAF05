@@ -1,0 +1,15 @@
+
+public class Card {
+	private String color;
+	private int value;
+
+	public Card(String string, int i) {
+		this.color =string;
+		this.value = i;
+	}
+	
+	public String toString() {
+		return value + " of " + color;
+	}
+
+}

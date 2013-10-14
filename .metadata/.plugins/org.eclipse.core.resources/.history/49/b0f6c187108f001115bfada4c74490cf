@@ -1,0 +1,22 @@
+import java.io.IOException;
+
+import org.apache.commons.io.IOUtils;
+
+public class Main {
+
+	public static void main(String[] args) {
+
+		String stringToConvert = "This String is 76 characters long and will be converted to an array of bytes";
+        
+        byte[] theByteArray = stringToConvert.getBytes();
+        
+        System.out.println(theByteArray.length);
+        try {
+			System.out.println(IOUtils.toString(theByteArray, "UTF-8"));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+}

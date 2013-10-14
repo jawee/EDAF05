@@ -1,0 +1,47 @@
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Scanner;
+
+
+public class SequenceAlignment {
+	private HashMap<String, String> sequenceMap;
+	private ArrayList<String> nameList;
+
+	public SequenceAlignment(File f) {
+		read(f);
+	}
+
+	private void read(File f) {
+		sequenceMap = new HashMap<String, String>();
+		nameList = new ArrayList<String>();
+		Scanner scan = null;
+		try {
+			scan = new Scanner(f);
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		while(scan.hasNextLine()) {
+			String s = scan.nextLine();
+			if(s.startsWith(">")) {
+				s.replaceAll(">", "");
+				System.out.println(s);
+				nameList.add(s);
+				sequenceMap.put(s, scan.nextLine());
+			}
+		}
+		
+		System.out.println(sequenceMap);
+	}
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		new SequenceAlignment(new File("Toy_FASTAs.in"));
+	}
+
+}
